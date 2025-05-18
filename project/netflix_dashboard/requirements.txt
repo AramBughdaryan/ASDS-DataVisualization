@@ -1,0 +1,7 @@
+# netflix_dashboard/requirements.txt
+pandas
+numpy
+plotly
+dash
+dash-bootstrap-components
+gunicorn
