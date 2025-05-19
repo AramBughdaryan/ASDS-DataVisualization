@@ -6,6 +6,7 @@ from collections import Counter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "data", "netflix.csv")
+print("DATA PATH", DATA_PATH)
 
 
 def load_and_prepare_data(file_path=DATA_PATH):
@@ -60,6 +61,10 @@ def load_and_prepare_data(file_path=DATA_PATH):
     df["year_added"] = df["year_added"].astype("Int64")
     df["month_added"] = df["month_added"].astype("Int64")
     df["release_year"] = df["release_year"].astype("Int64")
+
+    df["country"] = df["country"].replace("Not Given", np.nan)
+    df["director"] = df["director"].replace("Not Given", np.nan)
+    df["rating"] = df["rating"].replace("Not Given", np.nan)
 
     return df
 
